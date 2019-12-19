@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'When a user visits a vending machine show page', type: :feature do
-  scenario 'they see the snacks in that machine with prices' do
+  scenario 'they see the average price of snacks in that machine' do
     owner = Owner.create(name: "Sam's Snacks")
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
 
@@ -22,5 +22,7 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
 
     expect(page).to have_content(cookies.name)
     expect(page).to have_content(cookies.price)
+
+    expect(page).to have_content(dons.average_price.to_i)
   end
 end

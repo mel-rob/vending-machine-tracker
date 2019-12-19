@@ -1,4 +1,4 @@
-include ActionView::Helpers
+<!-- include ActionView::Helpers -->
 
 <h1><%= @machine.location %> Vending Machine</h1>
 
@@ -8,3 +8,5 @@ include ActionView::Helpers
     <li><%= snack.name %>: <%= number_to_currency(snack.price) %></li>
   <% end %>
 </ul>
+
+<h4>Average Price: <%= @machine.average_price.to_i %>
