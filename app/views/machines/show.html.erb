@@ -1,1 +1,10 @@
+include ActionView::Helpers
+
 <h1><%= @machine.location %> Vending Machine</h1>
+
+<h3>Snacks</h3>
+<ul>
+  <% @machine.snacks.each do |snack| %>
+    <li><%= snack.name %>: <%= number_to_currency(snack.price) %></li>
+  <% end %>
+</ul>
